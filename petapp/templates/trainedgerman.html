@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'petapp/css/style.css' %}" />
+
+    <title>Home Page</title>
+</head>
+<header>
+    <nav>
+      <ul>
+        <li><a href="{% url 'home' %}" class="active">Home</a></li>
+        <li><a href="{% url 'dogs' %}" class="active">Dogs</a></li>
+        <li><a href="{% url 'logout' %}" class="active" style="margin-left: 1700px;">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    {% if user.is_authenticated %}
+        <!-- <P>Hello {{user.email}}</P>
+        <a href="{% url 'logout' %}">logout</a> -->
+            <img  src="{% static 'petapp/images/TrainedGerman.png' %}"/>
+           
+    {% else %}
+     <P>No Logged In user</P>
+    {% endif %}    
+    
+</body>
+</html>
